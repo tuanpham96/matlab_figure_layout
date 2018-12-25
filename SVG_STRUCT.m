@@ -40,9 +40,25 @@ classdef SVG_STRUCT
                 second_parse = SVG_STRUCT.recursive_children_second_parse(...
                     second_parse, group_i);
             end
-
-            res = second_parse;
-            
+            res = struct(); 
+            res = SVG_STRUCT.recursive_children_third_parse(res, second_parse, '');             
+        end
+        function obj = recursive_children_third_parse(obj, cur_node, name)
+            if isfield(cur_node, 'normz_pos')
+                obj.(name) = cur_node; 
+            else
+                node_fields = fieldnames(cur_node); 
+                for i = 1 : length(node_fields) 
+                    field_i = node_fields{i}; 
+                    next_node = cur_node.(field_i);
+                    if isempty(name) 
+                        next_name = field_i; 
+                    else 
+                        next_name = [name, '_', field_i];
+                    end
+                    obj = SVG_STRUCT.recursive_children_third_parse(obj, next_node, next_name); 
+                end                
+            end
         end
         function obj = normalize_dimensions(obj, max_width, max_height)         
             dim_params = {'x', 'y', 'width', 'height'};
