@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100mm"
+   height="120mm"
+   viewBox="0 0 100 120"
+   version="1.1"
+   id="svg3415"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs3409" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="536.65863"
+     inkscape:cy="80.929718"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-10"
+     inkscape:window-y="-10"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3412">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-177)">
+    <g
+       id="g1059"
+       inkscape:export-filename="C:\Users\Tuan\Desktop\matlab_figure_layout\docs\logo1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600">
+      <rect
+         y="189.82494"
+         x="5.8925705"
+         height="31.003265"
+         width="53.775356"
+         id="rect1044"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         inkscape:export-ydpi="600"
+         inkscape:export-xdpi="600"
+         inkscape:export-filename="C:\Users\Tuan\Desktop\matlab_figure_layout\docs\logo1.png"
+         transform="translate(-1.7008929,-22.39509)"
+         id="g867">
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="figure"
+           y="213.88393"
+           x="16.072472"
+           height="21.305161"
+           width="40.482918"
+           id="rect817"
+           style="opacity:1;fill:#ffd5d5;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="colorbar"
+           y="213.88394"
+           x="56.555389"
+           height="21.305159"
+           width="3.2660053"
+           id="rect817-4"
+           style="opacity:1;fill:#d5f6ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="legend"
+           y="235.27551"
+           x="24.331263"
+           height="4.3999314"
+           width="17.123398"
+           id="rect817-8-5-0"
+           style="opacity:1;fill:#e5d5ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="inset"
+           y="230.06723"
+           x="10.31288"
+           height="5.1386652"
+           width="31.250196"
+           id="rect817-6"
+           style="opacity:1;fill:#ffe6d5;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           y="223.548"
+           x="10.379004"
+           height="6.5192394"
+           width="41.72644"
+           id="rect817-8-4"
+           style="opacity:1;fill:#d5fff6;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145837;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           LABEL="annotation" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:5.29166651px;line-height:1.25;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="11.089381"
+           y="228.24918"
+           id="text819"><tspan
+             sodipodi:role="line"
+             x="11.089381"
+             y="228.24918"
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:5.29166651px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+             id="tspan821">FigLay MATLAB</tspan><tspan
+             sodipodi:role="line"
+             x="11.089381"
+             y="234.86375"
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:5.29166651px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+             id="tspan825" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="11.396745"
+           y="233.80525"
+           id="text837"><tspan
+             sodipodi:role="line"
+             id="tspan835"
+             x="11.396745"
+             y="233.80525"
+             style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">planning figure layout in Matlab</tspan><tspan
+             sodipodi:role="line"
+             x="11.396745"
+             y="238.21498"
+             style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+             id="tspan839">for easily-reproducible figures</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g1108"
+       inkscape:export-filename="C:\Users\Tuan\Desktop\matlab_figure_layout\docs\logo2.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       transform="translate(3.3805962,-4.2762909)">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1044-0"
+         width="54.555256"
+         height="53.186634"
+         x="1.7320732"
+         y="225.10449" />
+      <g
+         transform="translate(3.7417734,6.815373)"
+         id="g1025">
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="figure"
+           y="226.17943"
+           x="4.6744027"
+           height="15.870841"
+           width="41.683529"
+           id="rect817-5"
+           style="opacity:1;fill:#ffd5d5;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="colorbar"
+           y="235.53429"
+           x="46.357929"
+           height="6.5159745"
+           width="4.2109461"
+           id="rect817-4-8"
+           style="opacity:1;fill:#d5f6ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145837;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="legend"
+           y="242.05026"
+           x="4.6744046"
+           height="4.3999314"
+           width="45.894478"
+           id="rect817-8-5-0-5"
+           style="opacity:1;fill:#e5d5ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="inset"
+           y="226.3324"
+           x="22.059008"
+           height="9.2019091"
+           width="28.509867"
+           id="rect817-6-6"
+           style="opacity:1;fill:#ffe6d5;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           y="221.93246"
+           x="1.1318865"
+           height="4.3999286"
+           width="7.9920654"
+           id="rect817-8-4-4"
+           style="opacity:1;fill:#d5fff6;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145837;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           LABEL="annotation" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="legend"
+           y="221.93246"
+           x="9.1239548"
+           height="4.3999314"
+           width="41.444923"
+           id="rect817-8-5-0-5-2"
+           style="opacity:1;fill:#ececec;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="600"
+           inkscape:export-xdpi="600"
+           LABEL="legend"
+           y="226.3324"
+           x="1.1318865"
+           height="20.253828"
+           width="3.8801236"
+           id="rect817-8-5-0-5-2-4"
+           style="opacity:1;fill:#d5ffe6;fill-opacity:1;stroke:#ffffff;stroke-width:0.66145831;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      </g>
+      <g
+         style="stroke-width:0.97950596"
+         transform="matrix(1.0209228,0,0,1.0209228,-3.9197943,7.8257475)"
+         id="g934">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:5.29166651px;line-height:1.25;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.25916094"
+           x="9.0006666"
+           y="246.30878"
+           id="text819-6"><tspan
+             sodipodi:role="line"
+             x="9.0006666"
+             y="246.30878"
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:5.29166651px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.25916094"
+             id="tspan821-4">FigLay MATLAB</tspan><tspan
+             sodipodi:role="line"
+             x="9.0006666"
+             y="252.92336"
+             style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:5.29166651px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.25916094"
+             id="tspan825-2" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.25916094"
+           x="9.3080301"
+           y="251.86485"
+           id="text837-9"><tspan
+             sodipodi:role="line"
+             id="tspan835-3"
+             x="9.3080301"
+             y="251.86485"
+             style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.25916094">planning figure layout in Matlab</tspan><tspan
+             sodipodi:role="line"
+             x="9.3080301"
+             y="256.27457"
+             style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Adobe Caslon Pro';-inkscape-font-specification:'Adobe Caslon Pro, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.25916094"
+             id="tspan839-6">for easily-reproducible figures</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -25,6 +25,24 @@
        inkscape:vp_z="210 : 148.5 : 1"
        inkscape:persp3d-origin="105 : 99 : 1"
        id="perspective990" />
+    <clipPath
+       id="clip1">
+      <path
+         id="path898"
+         d="M 0 157.394531 L 595 157.394531 L 595 684.496094 L 0 684.496094 Z M 0 157.394531 " />
+    </clipPath>
+    <clipPath
+       id="clip1-2">
+      <path
+         id="path2146"
+         d="M 18 18 L 577.277344 18 L 577.277344 823.890625 L 18 823.890625 Z M 18 18 " />
+    </clipPath>
+    <clipPath
+       id="clip1-5">
+      <path
+         id="path2770"
+         d="M 0 0 L 595 0 L 595 841.890625 L 0 841.890625 Z M 0 0 " />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -33,9 +51,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="153.15381"
-     inkscape:cy="538.22551"
+     inkscape:zoom="0.35"
+     inkscape:cx="654.15051"
+     inkscape:cy="259.55315"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,7 +71,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -101,7 +119,9 @@
            height="32.408779"
            x="34.095329"
            y="42.374409"
-           LABEL="figure" />
+           LABEL="figure"
+           inkscape:export-xdpi="600"
+           inkscape:export-ydpi="600" />
         <rect
            style="opacity:1;fill:#d5f6ff;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect817-4"
@@ -109,7 +129,9 @@
            height="27.597931"
            x="90.588104"
            y="45.714882"
-           LABEL="colorbar" />
+           LABEL="colorbar"
+           inkscape:export-xdpi="600"
+           inkscape:export-ydpi="600" />
         <rect
            style="opacity:1;fill:#e5d5ff;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect817-8-5-0"
@@ -117,7 +139,9 @@
            height="5.9490972"
            x="67.771286"
            y="77.429024"
-           LABEL="legend" />
+           LABEL="legend"
+           inkscape:export-xdpi="600"
+           inkscape:export-ydpi="600" />
         <rect
            style="opacity:1;fill:#ffe6d5;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect817-6"
@@ -125,7 +149,9 @@
            height="15.538068"
            x="60.287735"
            y="37.082737"
-           LABEL="inset" />
+           LABEL="inset"
+           inkscape:export-xdpi="600"
+           inkscape:export-ydpi="600" />
         <rect
            LABEL="annotation"
            style="opacity:1;fill:#d5fff6;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -133,7 +159,9 @@
            width="10.626314"
            height="5.9490972"
            x="31.394423"
-           y="35.298355" />
+           y="35.298355"
+           inkscape:export-xdpi="600"
+           inkscape:export-ydpi="600" />
         <rect
            style="opacity:1;fill:none;fill-opacity:1;stroke:#0a0a0a;stroke-width:0.16155101;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect817-8-5-9-4"
@@ -335,7 +363,7 @@
         <g
            TEMPLATE="none"
            id="g1038"
-           GROUP="sub2_1">
+           GROUP="sub1">
           <rect
              style="opacity:1;fill:none;fill-opacity:1;stroke:#0a0a0a;stroke-width:0.16155101;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
              id="rect817-8-5-9-4-6-4-4"
@@ -370,7 +398,7 @@
              y="256.6882" />
           <g
              TEMPLATE="none"
-             GROUP="sub_2_1_1"
+             GROUP="sub1"
              id="g1028">
             <rect
                y="264.17422"
@@ -398,6 +426,15 @@
                LABEL="figure" />
           </g>
         </g>
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#0a0a0a;stroke-width:0.161551;stroke-linejoin:round;stroke-miterlimit:2.64285707;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect817-8-5-9-4-6-4-4-9"
+           width="31.315639"
+           height="18.847378"
+           x="130.4718"
+           y="259.11212"
+           GROUP="sub2"
+           TEMPLATE="sub1" />
       </g>
     </g>
   </g>

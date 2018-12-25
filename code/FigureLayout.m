@@ -1,18 +1,53 @@
-classdef SVG_STRUCT
-    methods (Static)
+classdef FigureLayout < handle
+    properties
+        dimensions
+        layout 
+        possible_fields = {'GROUP', 'TEMPLATE', 'LABEL', ...
+            'x', 'y', 'width', 'height'};        
+    end
+    methods
+        function obj = FigureLayout(file_name)
+            svg_file = xml2struct(file_name);
+            file_attr = [svg_file.Attributes];
+            obj.parse_dimensions(file_attr); 
+            obj.parse_layout(svg_file);             
+        end
         
+        function parse_dimensions(obj, file_attr)
+            attr_map = containers.Map({file_attr.Name},{file_attr.Value});
+            width_str = attr_map('width');
+            height_str = attr_map('height');
+            dim_unit = width_str(regexpi(width_str, '[a-z]'));
+            max_width = str2double(width_str(regexpi(width_str, '\d')));
+            max_height = str2double(height_str(regexpi(height_str, '\d')));
+            
+            obj.dimensions = struct('width', max_width, 'height', max_height, 'unit', dim_unit);
+            
+        end
+        function parse_layout(obj, svg_file)            
+            file_children = FigureLayout.return_nonempty_obj([svg_file.Children]);
+            for i = 1:length(file_children)
+                if strcmp(FigureLayout.return_atrr_val(file_children(i),'TAG'), 'LAYOUT')
+                    layout_obj = FigureLayout.return_nonempty_obj([file_children(i).Children]);
+                    break
+                end
+            end
+            obj.layout = FigureLayout.return_general_layout(layout_obj, obj.dimensions, obj.possible_fields);
+        end
+    end 
+    methods (Static)
         function res = nonempty_pos(c_l)
             res = cellfun(@(x) ~isempty(x), c_l, 'UniformOutput', true);
         end
         function res = return_nonempty_obj(raw_obj)
             if isfield(raw_obj, 'Attributes')
-                res = raw_obj(SVG_STRUCT.nonempty_pos({raw_obj.Attributes}));
+                res = raw_obj(FigureLayout.nonempty_pos({raw_obj.Attributes}));
             else
                 res = '';
             end
         end
         function res = return_named_obj(parent, name)
-            res = SVG_STRUCT.return_nonempty_obj([parent(strcmp({parent.Name}, name)).Children]);
+            res = FigureLayout.return_nonempty_obj([parent(strcmp({parent.Name}, name)).Children]);
         end
         function res = return_atrr_val(obj, attr)            
             idx = find(strcmp({obj.Attributes.Name},attr));
@@ -26,7 +61,7 @@ classdef SVG_STRUCT
             first_parse = struct();
             for i = 1:length(layout_obj)
                 ly_i = layout_obj(i);
-                tmp_struct = SVG_STRUCT.recursive_children_first_parse(...
+                tmp_struct = FigureLayout.recursive_children_first_parse(...
                     ly_i, dimensions, possible_fields);
                 group_name = tmp_struct.GROUP;
                 first_parse.(group_name) = tmp_struct;
@@ -37,11 +72,11 @@ classdef SVG_STRUCT
             for i = 1:length(group_names)
                 name_i = group_names{i};
                 group_i = first_parse.(name_i);
-                second_parse = SVG_STRUCT.recursive_children_second_parse(...
+                second_parse = FigureLayout.recursive_children_second_parse(...
                     second_parse, group_i);
             end
             res = struct(); 
-            res = SVG_STRUCT.recursive_children_third_parse(res, second_parse, '');             
+            res = FigureLayout.recursive_children_third_parse(res, second_parse, '');             
         end
         function obj = recursive_children_third_parse(obj, cur_node, name)
             if isfield(cur_node, 'normz_pos')
@@ -56,7 +91,7 @@ classdef SVG_STRUCT
                     else 
                         next_name = [name, '_', field_i];
                     end
-                    obj = SVG_STRUCT.recursive_children_third_parse(obj, next_node, next_name); 
+                    obj = FigureLayout.recursive_children_third_parse(obj, next_node, next_name); 
                 end                
             end
         end
@@ -85,8 +120,7 @@ classdef SVG_STRUCT
             res.width = src_child.width * scale_x; 
             res.height = src_child.height * scale_y;
             res.normz_pos = [res.x, res.y, res.width, res.height];       
-        end 
-        
+        end         
         function [src_border, tgt_border, tgt] = get_borders(src, tgt) 
              if ~isfield(src, 'border') 
                 error('The source template needs to have a border in order to copy for target object'); 
@@ -105,8 +139,8 @@ classdef SVG_STRUCT
             end
         end 
         function tgt = copy_template(src, tgt)
-           [src_border, tgt_border, tgt] = SVG_STRUCT.get_borders(src, tgt); 
-           tgt = SVG_STRUCT.recursive_template(src, tgt, src_border, tgt_border);            
+           [src_border, tgt_border, tgt] = FigureLayout.get_borders(src, tgt); 
+           tgt = FigureLayout.recursive_template(src, tgt, src_border, tgt_border);            
         end 
         function tgt_child = recursive_template(src_child, tgt_child, src_border, tgt_border)
             if ~isfield(src_child, 'normz_pos') 
@@ -114,11 +148,11 @@ classdef SVG_STRUCT
                 for i = 1:length(components) 
                     comp_name = components{i}; 
                     tgt_child.(comp_name) = src_child.(comp_name); 
-                    tgt_child.(comp_name) = SVG_STRUCT.recursive_template(src_child.(comp_name), ...
+                    tgt_child.(comp_name) = FigureLayout.recursive_template(src_child.(comp_name), ...
                         tgt_child.(comp_name), src_border, tgt_border);
                 end
             else
-                tgt_child = SVG_STRUCT.transform(src_child, src_border, tgt_border); 
+                tgt_child = FigureLayout.transform(src_child, src_border, tgt_border); 
             end
         end
         function parent = recursive_children_second_parse(parent, child) 
@@ -135,7 +169,7 @@ classdef SVG_STRUCT
                     
                     if has_children && raw_template
                         for kid = child.Children
-                            child = SVG_STRUCT.recursive_children_second_parse(child, kid{:});
+                            child = FigureLayout.recursive_children_second_parse(child, kid{:});
                         end
                         child = rmfield(child, 'Children'); 
                     end
@@ -144,7 +178,7 @@ classdef SVG_STRUCT
                             error('There is no corresonding template named ''%s'' in the parent', tmplt);                         
                         end                        
                         template_obj = parent.(tmplt);
-                        child = SVG_STRUCT.copy_template(template_obj, child);
+                        child = FigureLayout.copy_template(template_obj, child);
                     end 
                     
                     if has_children && ~raw_template
@@ -169,23 +203,23 @@ classdef SVG_STRUCT
             res_child = struct();
             for i_field = 1:length(possible_fields)
                 field = possible_fields{i_field};
-                val = SVG_STRUCT.return_atrr_val(parent,field);
+                val = FigureLayout.return_atrr_val(parent,field);
                 if ~isnan(val)
                     res_child.(field) = val;
                 end                
             end
             if isfield(res_child, 'LABEL') || ...
                 (isfield(res_child, 'GROUP') && isfield(res_child, 'x'))
-                res_child = SVG_STRUCT.normalize_dimensions(...
+                res_child = FigureLayout.normalize_dimensions(...
                     res_child, dimensions.width, dimensions.height); 
             end
             if isfield(parent, 'Children')
-                children = SVG_STRUCT.return_nonempty_obj([parent.Children]);
+                children = FigureLayout.return_nonempty_obj([parent.Children]);
                 if ~isempty(children)
                     for i_child = 1:length(children)
                         child_i = children(i_child);
                         res_child.Children(i_child) = ...
-                            { SVG_STRUCT.recursive_children_first_parse(...
+                            { FigureLayout.recursive_children_first_parse(...
                                 child_i, dimensions, possible_fields) };
                     end
                 end
