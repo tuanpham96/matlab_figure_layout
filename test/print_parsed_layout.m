@@ -1,7 +1,9 @@
 clc; close all; clear;
 addpath('../code');
 %% Parse the svg  
-file_prefix = 'layout_test_1'; 
+with_labels = true; 
+file_id = 'test_3'; 
+file_prefix = ['layout_', file_id]; 
 file_name = [file_prefix, '.svg']; 
 svg_parsed = FigureLayout(file_name); 
 dimensions = svg_parsed.dimensions; 
@@ -43,7 +45,14 @@ for i=1:length(components)
     end
     ax = axes('Units', 'normalized', 'Position', comp.normz_pos);
     set(ax, 'Color', color, 'xtick', '', 'ytick', '', 'box', box_opt);
-    xlabel(ax, label, 'fontsize', 8); 
+    if with_labels
+        xlabel(ax, label, 'fontsize', 8); 
+    end
 end
-
-print(gcf, [file_prefix '_resultwithlabels'], '-dpdf'); 
+%% Print it out 
+if with_labels
+    suffix = '_layout_with_labels'; 
+else 
+    suffix = '_layout_no_labels'; 
+end 
+print(gcf, [file_id, suffix], '-dpdf'); 
