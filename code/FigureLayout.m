@@ -3,7 +3,7 @@ classdef FigureLayout < handle
         dimensions
         layout 
         possible_fields = {'GROUP', 'TEMPLATE', 'LABEL', ...
-            'x', 'y', 'width', 'height'};        
+            'x', 'y', 'width', 'height', 'transform'};        
     end
     methods
         function obj = FigureLayout(file_name)
@@ -57,6 +57,7 @@ classdef FigureLayout < handle
                 res = obj.Attributes(idx).Value;
             end
         end
+        
         function res = return_general_layout(layout_obj, dimensions, possible_fields)
             first_parse = struct();
             for i = 1:length(layout_obj)
@@ -85,6 +86,7 @@ classdef FigureLayout < handle
                 node_fields = fieldnames(cur_node); 
                 for i = 1 : length(node_fields) 
                     field_i = node_fields{i}; 
+                    if ~strcmp(field_i, 'transform') 
                     next_node = cur_node.(field_i);
                     if isempty(name) 
                         next_name = field_i; 
@@ -92,9 +94,38 @@ classdef FigureLayout < handle
                         next_name = [name, '_', field_i];
                     end
                     obj = FigureLayout.recursive_children_third_parse(obj, next_node, next_name); 
+                    end
                 end                
             end
         end
+        function obj = appl_transform(obj, transform_struct) 
+            try 
+                x = obj.x; 
+                y = obj.y; 
+                width = obj.width; 
+                height = obj.height;
+            catch 
+                error(['The struct object to be transformed does not have ' ...
+                    'all the required dimension fields']); 
+            end 
+            try
+                A = transform_struct.A;
+                B = transform_struct.B;
+                C = transform_struct.C;
+                D = transform_struct.D;
+                E = transform_struct.E;
+                F = transform_struct.F;
+            catch
+                error(['The transformation struct does not have all the' ...
+                    'required fields for a transformation matrix']); 
+            end
+            % http://tavmjong.free.fr/INKSCAPE/MANUAL/html/Glossary.html#transmatrix
+            obj.x = A*x + C*y + E; 
+            obj.y = B*x + D*y + F; 
+            obj.width = A*width;
+            obj.height = D*height; 
+        end
+        
         function obj = normalize_dimensions(obj, max_width, max_height)         
             dim_params = {'x', 'y', 'width', 'height'};
             normz_fun = {@(a) a/max_width, ...
@@ -109,7 +140,7 @@ classdef FigureLayout < handle
             obj.y = obj.y - obj.height;
             obj.normz_pos = [obj.x, obj.y, obj.width, obj.height];
         end
-        function res = transform(src_child, src_border, tgt_border)
+        function res = apply_template(src_child, src_border, tgt_border)
             scale_x = tgt_border.width/src_border.width; 
             scale_y = tgt_border.height/src_border.height; 
             translate_x = src_child.x - src_border.x; 
@@ -147,15 +178,33 @@ classdef FigureLayout < handle
                 components = fieldnames(src_child); 
                 for i = 1:length(components) 
                     comp_name = components{i}; 
-                    tgt_child.(comp_name) = src_child.(comp_name); 
+                    tgt_child.(comp_name) = src_child.(comp_name);        
+                    
+                    if ~strcmp(comp_name, 'transform') 
                     tgt_child.(comp_name) = FigureLayout.recursive_template(src_child.(comp_name), ...
                         tgt_child.(comp_name), src_border, tgt_border);
+                    end
                 end
             else
-                tgt_child = FigureLayout.transform(src_child, src_border, tgt_border); 
+                tgt_child = FigureLayout.apply_template(src_child, src_border, tgt_border); 
+            end
+        end
+        function [parent, child] = pass_on_transform(parent, child)
+            if isfield(parent, 'transform')
+                if ~isfield(child, 'transform')
+                    child.transform = {}; 
+                end
+                prn_trnf = parent.transform;
+                if iscell(prn_trnf) 
+                    add_on = prn_trnf;
+                else
+                    add_on = {prn_trnf};
+                end
+                child.transform = [child.transform, add_on]; 
             end
         end
         function parent = recursive_children_second_parse(parent, child) 
+            [parent, child] = FigureLayout.pass_on_transform(parent, child);
             if isfield(child, 'LABEL')  
                 lbl = child.LABEL; 
                 child = rmfield(child, 'LABEL'); 
@@ -198,6 +247,7 @@ classdef FigureLayout < handle
                         'a pair of (TEMPLATE, GROUP)']); 
                 end
             end
+
         end 
         function res_child = recursive_children_first_parse(parent, dimensions, possible_fields)
             res_child = struct();
@@ -206,7 +256,7 @@ classdef FigureLayout < handle
                 val = FigureLayout.return_atrr_val(parent,field);
                 if ~isnan(val)
                     res_child.(field) = val;
-                end                
+                end  
             end
             if isfield(res_child, 'LABEL') || ...
                 (isfield(res_child, 'GROUP') && isfield(res_child, 'x'))
