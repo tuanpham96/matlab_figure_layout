@@ -7,6 +7,7 @@ classdef FigureLayout < handle
         dim_fields = {'x', 'y', 'width', 'height', 'normz_pos'};
         possible_fields = {'GROUP', 'TEMPLATE', 'LABEL', ...
             'x', 'y', 'width', 'height', 'transform'};
+        possible_patterns = {'^FigLay\_*'};
     end
     methods
         function obj = FigureLayout(file_name)
@@ -86,7 +87,7 @@ classdef FigureLayout < handle
             scale_y = tgt_border.height/src_border.height;
             translate_x = src_child.x - src_border.x;
             translate_y = src_child.y - src_border.y;
-            res = struct();
+            res = src_child; % for anything other than dimensions
             res.x = tgt_border.x + translate_x * scale_x;
             res.y = tgt_border.y + translate_y * scale_y;
             res.width = src_child.width * scale_x;
@@ -257,6 +258,10 @@ classdef FigureLayout < handle
                     res_child.(field) = val;
                 end
             end
+            for i_pat = 1:length(FigureLayout.possible_patterns) 
+                pat = FigureLayout.possible_patterns{i_pat}; 
+                res_child = FigureLayout.return_attrpattern_val(res_child, parent, pat); 
+            end 
             if isfield(res_child, 'x') 
                 res_child = FigureLayout.parse_dimension_text(res_child); 
             end
@@ -348,7 +353,26 @@ classdef FigureLayout < handle
         function res = return_named_obj(parent, name)
             res = FigureLayout.return_nonempty_obj([parent(strcmp({parent.Name}, name)).Children]);
         end
-        
+        function child = return_attrpattern_val(child, parent, attr_pat)
+            attr_names = {parent.Attributes.Name}; 
+            idx = find(FigureLayout.nonempty_pos(regexp(attr_names, attr_pat)));
+            if ~isempty(idx)
+                for i = idx 
+                    name_i = regexp(attr_names{i}, attr_pat, 'split');
+                    name_i = name_i(FigureLayout.nonempty_pos(name_i)); 
+                    if length(name_i) ~= 1
+                        error(['The pattern attribute %s, after parsing should '...
+                        ' result in one and only one name from %s'], attr_pat, attr_names{i});
+                    end
+                    val_i = parent.Attributes(i).Value; 
+                    [parse_i, stat_i] = str2num(val_i);
+                    if stat_i % if it is a num, save it; otherwise just string
+                        val_i = parse_i;
+                    end
+                    child.(name_i{1}) = val_i;
+                end
+            end            
+        end
         function res = return_atrr_val(obj, attr)
             idx = find(strcmp({obj.Attributes.Name},attr));
             if isempty(idx)
