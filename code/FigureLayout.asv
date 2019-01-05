@@ -140,6 +140,13 @@ classdef FigureLayout < handle
                 child.transform = [child.transform, add_on];
             end
         end
+        function obj = apply_multiple_transforms(obj)
+            transform_cell = obj.transform;
+            for i = 1:length(transform_cell)
+                transform_struct = transform_cell(i);
+                obj = FigureLayout.apply_transform(obj, transform_struct);
+            end
+        end
         function obj = apply_transform(obj, transform_struct)
             try
                 x = obj.x;
@@ -169,19 +176,6 @@ classdef FigureLayout < handle
             obj.normz_pos = [obj.x, obj.y, obj.width, obj.height];
             
         end
-        function obj = apply_transforms_and_normalize(obj, max_width, max_height)
-            if isfield(obj, 'transform')                
-                transform_cell = obj.transform;
-                for i = 1:length(transform_cell)
-                    transform_struct = transform_cell(i);
-                    obj = FigureLayout.apply_transform(obj, transform_struct);
-                end
-                obj = rmfield(obj, 'transform');
-            end
-            obj = FigureLayout.normalize_dimensions(obj, max_width, max_height);
-            
-    
-        end
         function parent = recursive_children_second_parse(parent, child, dimensions)
             
             max_width = dimensions.width;
@@ -189,13 +183,12 @@ classdef FigureLayout < handle
             [parent, child] = FigureLayout.pass_on_transform(parent, child);
             if isfield(child, 'LABEL')
                 lbl = child.LABEL;
-                child = FigureLayout.apply_transforms_and_normalize(child, max_width, max_height);
-%                 if isfield(child, 'transform')
-%                     child = FigureLayout.apply_multiple_transforms(child);                    
-%                     child = rmfield(child, 'transform');
-%                     child = FigureLayout.normalize_dimensions(...
-%                         child, max_width, max_height);
-%                 end
+                if isfield(child, 'transform')
+                    child = FigureLayout.apply_multiple_transforms(child);                    
+                    child = rmfield(child, 'transform');
+                    child = FigureLayout.normalize_dimensions(...
+                        child, max_width, max_height);
+                end
                 child = rmfield(child, 'LABEL');
                 parent.(lbl) = child;
                 
@@ -216,13 +209,11 @@ classdef FigureLayout < handle
                         if ~isfield(parent, tmplt)
                             error('There is no corresonding template named ''%s'' in the parent', tmplt);
                         end
-                        if isfield(parent.(tmplt), 'transform')
-                            parent.(tmplt) = rmfield(parent.(tmplt), 'transform');  
-                        end
+                        if isfield(parent.
                         template_obj = parent.(tmplt);
-                        child = FigureLayout.apply_transforms_and_normalize(child, max_width, max_height);
-%                         child = FigureLayout.normalize_dimensions(...
-%                             child, max_width, max_height);
+                       
+                        child = FigureLayout.normalize_dimensions(...
+                            child, max_width, max_height);
                         child = FigureLayout.copy_template(template_obj, child);
                     end
                     

@@ -1,7 +1,7 @@
 clc; close all; clear;
 addpath('../code');
 %% Parse the svg  
-with_labels = true; 
+with_labels = false; 
 file_id = 'test_3'; 
 file_prefix = ['layout_', file_id]; 
 file_name = [file_prefix, '.svg']; 
