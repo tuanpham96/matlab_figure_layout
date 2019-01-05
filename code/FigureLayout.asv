@@ -140,13 +140,6 @@ classdef FigureLayout < handle
                 child.transform = [child.transform, add_on];
             end
         end
-        function obj = apply_multiple_transforms(obj)
-            transform_cell = obj.transform;
-            for i = 1:length(transform_cell)
-                transform_struct = transform_cell(i);
-                obj = FigureLayout.apply_transform(obj, transform_struct);
-            end
-        end
         function obj = apply_transform(obj, transform_struct)
             try
                 x = obj.x;
@@ -176,6 +169,19 @@ classdef FigureLayout < handle
             obj.normz_pos = [obj.x, obj.y, obj.width, obj.height];
             
         end
+        function obj = apply_transforms_and_normalize(obj, max_width, max_height)
+            if isfield(obj, 'transform')                
+                transform_cell = obj.transform;
+                for i = 1:length(transform_cell)
+                    transform_struct = transform_cell(i);
+                    obj = FigureLayout.apply_transform(obj, transform_struct);
+                end
+                obj = rmfield(obj, 'transform');
+            end
+            obj = FigureLayout.normalize_dimensions(obj, max_width, max_height);
+            
+    
+        end
         function parent = recursive_children_second_parse(parent, child, dimensions)
             
             max_width = dimensions.width;
@@ -183,22 +189,24 @@ classdef FigureLayout < handle
             [parent, child] = FigureLayout.pass_on_transform(parent, child);
             if isfield(child, 'LABEL')
                 lbl = child.LABEL;
-                if isfield(child, 'transform')
-                    child = FigureLayout.apply_multiple_transforms(child);                    
-                    child = rmfield(child, 'transform');
-                    child = FigureLayout.normalize_dimensions(...
-                        child, max_width, max_height);
-                end
+                child = FigureLayout.apply_transforms_and_normalize(child, max_width, max_height);
                 child = rmfield(child, 'LABEL');
+                if isfield(parent, lbl) 
+                    error('Parsing error: du, lbl);
+                end
                 parent.(lbl) = child;
                 
             else
-                if isfield(child, 'TEMPLATE') && isfield(child, 'GROUP')
-                    tmplt = child.TEMPLATE;
+                if isfield(child, 'GROUP')
                     group = child.GROUP;
                     has_children = isfield(child, 'Children');
-                    raw_template = strcmp(tmplt, 'none');
-                    
+                    if isfield(child, 'TEMPLATE') 
+                        tmplt = child.TEMPLATE;
+                        raw_template = strcmp(tmplt, 'none');
+                        child = rmfield(child, 'TEMPLATE'); 
+                    else
+                        raw_template = true;
+                    end
                     if has_children && raw_template
                         for kid = child.Children
                             child = FigureLayout.recursive_children_second_parse(child, kid{:}, dimensions);
@@ -209,11 +217,11 @@ classdef FigureLayout < handle
                         if ~isfield(parent, tmplt)
                             error('There is no corresonding template named ''%s'' in the parent', tmplt);
                         end
-                        if isfield(parent.
+                        if isfield(parent.(tmplt), 'transform')
+                            parent.(tmplt) = rmfield(parent.(tmplt), 'transform');  
+                        end
                         template_obj = parent.(tmplt);
-                       
-                        child = FigureLayout.normalize_dimensions(...
-                            child, max_width, max_height);
+                        child = FigureLayout.apply_transforms_and_normalize(child, max_width, max_height);
                         child = FigureLayout.copy_template(template_obj, child);
                     end
                     
@@ -224,8 +232,12 @@ classdef FigureLayout < handle
                         error('There needs to be grandkids if not using a template') ;
                     end
                     
-                    if isfield(child, {'GROUP', 'TEMPLATE'})
-                        child = rmfield(child, {'GROUP', 'TEMPLATE'});
+                    if isfield(child, 'GROUP')
+                        child = rmfield(child, 'GROUP');
+                    end
+                    
+                    if isfield(parent, group) 
+                        error('Parsing error: duplicate group %s', group);
                     end
                     parent.(group) = child;
                     
