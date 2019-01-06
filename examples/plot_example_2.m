@@ -1,10 +1,11 @@
 clc; close all; clear;
 addpath('../code');
 %% Parse the svg  
-file_id = 'test_2c'; 
+file_id = 'example_2b'; 
 file_prefix = ['layout_', file_id]; 
 file_name = [file_prefix, '.svg']; 
-svg_parsed = FigureLayout(file_name); 
+replacetextstruct = '';
+svg_parsed = FigureLayout(file_name, replacetextstruct); 
 dimensions = svg_parsed.dimensions; 
 layout = svg_parsed.layout; 
 

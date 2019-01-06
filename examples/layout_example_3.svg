@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="layout_test_3.svg">
+   sodipodi:docname="layout_example_3.svg">
   <defs
      id="defs2">
     <g
@@ -167,11 +167,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="92.893696"
-     inkscape:cy="707.0407"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-105.7142"
+     inkscape:cy="145.21134"
      inkscape:document-units="mm"
-     inkscape:current-layer="g926"
+     inkscape:current-layer="g1234-5"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="991"
@@ -186,7 +186,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -199,10 +199,10 @@
        id="g916"
        GROUP="A"
        style="stroke-width:1.30362523"
-       transform="matrix(0.77076545,0,0,0.87747488,22.575225,-0.45734418)">
+       transform="matrix(0.77076545,0,0,0.87747488,22.575225,-0.45735151)">
       <rect
          y="24.984093"
-         x="16.201736"
+         x="16.201746"
          height="7.1518097"
          width="169.08134"
          id="rect817-8-5-2"
@@ -288,8 +288,7 @@
         <g
            id="g948"
            GROUP="sub1"
-           style="stroke-width:1.65697336"
-           transform="matrix(1.5880163,0,0,0.87101868,-39.93382,20.085907)">
+           style="stroke-width:1.65697336">
           <rect
              y="81.192299"
              x="61.212856"
@@ -326,20 +325,11 @@
          id="rect1167-22"
          style="opacity:0.47300002;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.27593401;stroke-linejoin:round;stroke-miterlimit:3.09523797;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
-    <rect
-       style="opacity:0.47300002;fill:#eef4d7;fill-opacity:0.4745098;stroke:#000000;stroke-width:0.20727131;stroke-linejoin:round;stroke-miterlimit:3.09523797;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect1167-22-2"
-       width="199.2084"
-       height="92.551025"
-       x="5.2004004"
-       y="108.20248"
-       TEMPLATE="A"
-       GROUP="B" />
     <g
        id="g916-5"
        GROUP="C"
        style="stroke-width:1.30362523"
-       transform="matrix(0.77076546,0,0,0.72752497,23.577883,208.09406)">
+       transform="translate(-2.2678571,180.29464)">
       <rect
          y="24.984093"
          x="16.201736"
@@ -367,8 +357,8 @@
            id="rect817-65-83"
            width="42.797287"
            height="25.660229"
-           x="14.475908"
-           y="47.393486" />
+           x="57.296131"
+           y="47.669113" />
         <rect
            LABEL="inset"
            style="opacity:1;fill:#ffe6d5;fill-opacity:1;stroke:none;stroke-width:0.35072604;stroke-linejoin:round;stroke-miterlimit:3.09523797;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -382,7 +372,7 @@
            GROUP="sub2"
            TEMPLATE="none"
            style="stroke-width:1.97635376"
-           transform="matrix(1,0,0,0.48886348,0,24.42188)">
+           transform="matrix(1,0,0,0.48886348,-48.59244,34.894561)">
           <rect
              y="50.356636"
              x="76.225639"
@@ -448,8 +438,8 @@
          height="69.490082"
          x="107.98853"
          y="35.277775"
-         GROUP="sub2"
-         TEMPLATE="sub1" />
+         TEMPLATE="sub1"
+         GROUP="sub2" />
       <rect
          LABEL="border"
          y="16.402134"
@@ -498,5 +488,14 @@
            y="86.376587" />
       </g>
     </g>
+    <rect
+       style="opacity:0.47300002;fill:#eef4d7;fill-opacity:0.4745098;stroke:#000000;stroke-width:0.1762967;stroke-linejoin:round;stroke-miterlimit:3.09523797;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1167-22-2"
+       width="179.20639"
+       height="74.429558"
+       x="7.4482284"
+       y="108.56976"
+       TEMPLATE="A"
+       GROUP="B" />
   </g>
 </svg>

@@ -2,10 +2,12 @@ clc; close all; clear;
 addpath('../code');
 %% Parse the svg  
 with_labels = false; 
-file_id = 'test_3'; 
+file_id = 'example_3'; 
 file_prefix = ['layout_', file_id]; 
 file_name = [file_prefix, '.svg']; 
-svg_parsed = FigureLayout(file_name); 
+% replacetextstruct = '';
+replacetextstruct = struct('pattern', 'sub', 'replacewith', ''); 
+svg_parsed = FigureLayout(file_name, replacetextstruct); 
 dimensions = svg_parsed.dimensions; 
 layout = svg_parsed.layout; 
 %% Figure dimensions and general set up 
