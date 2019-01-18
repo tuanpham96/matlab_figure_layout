@@ -14,7 +14,11 @@ layout = svg_parsed.layout;
 width = dimensions.width; 
 height = dimensions.height; 
 unit = dimensions.unit; 
-conv_factor = 1/10; 
+% set manually if your MATLAB version does not have `str2symunit` or `unitConversionFactor`
+% if you have both, you can do:
+%       conv_factor = double(unitConversionFactor(str2symunit(unit), ...
+%                   str2symunit('cm')));
+conv_factor = 1/10; % if unit in svg file is milimeters
 
 figure;
 set(gcf, 'Units', 'centimeters', ...
