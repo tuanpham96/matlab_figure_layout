@@ -1,5 +1,8 @@
 
 # FigLay MATLAB
+## (currently under modification)
+Due to my time constraints and newer versions of MATLAB, I am planning to modify the code to adapt to the versions, as well as making this easier to use and having simpler documentation, when I have time. Please contact me at phhanhtuan*AT*gmail if you want a crude working version of this. 
+
 ### *Figure layout planning in `Inkscape` & `MATLAB` for easily-reproducible figures*  
 This function is for planning figure layout in Inkscape (to produce tagged `.svg` files) before plotting sub panels in `MATLAB`.   
 The reason I wrote this function was because of the manual labor of deciding the subplot positions in `MATLAB`.  
