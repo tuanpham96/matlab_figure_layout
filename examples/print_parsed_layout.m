@@ -2,7 +2,7 @@ clc; close all; clear;
 addpath('../code');
 %% Parse the svg  
 with_labels = false; 
-file_id = 'example_3'; 
+file_id = 'example_1'; 
 file_prefix = ['layout_', file_id]; 
 file_name = [file_prefix, '.svg']; 
 % replacetextstruct = '';

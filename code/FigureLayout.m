@@ -85,7 +85,14 @@ classdef FigureLayout < handle
             % file_name:            the path for the `.svg` file
             % replacetextstruct:    the struct that saves the pattern to be 
             %                       replaced when parsing.
-            svg_file = xml2struct(file_name);
+            if exist('xml2struct') %#ok<EXIST>
+                svg_file = xml2struct(file_name);
+            elseif exist('xmlread') %#ok<EXIST>
+                svg_file = parseXML(file_name);
+            else
+                error('No function to read XML files');
+            end
+            
             file_attr = [svg_file.Attributes];
             obj.replacetextstruct = replacetextstruct;
             obj.parse_dimensions(file_attr);
